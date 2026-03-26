@@ -6,7 +6,7 @@ import { PROJECTS } from './constants';
 import Lottie from 'lottie-react';
 
 // Abstract technical/system animation
-const techAnimation = "https://assets10.lottiefiles.com/packages/lf20_kz9pjcjt.json";
+import techAnimationData from './infrastructure.json';
 
 export function Hero() {
   return (
@@ -56,17 +56,8 @@ export function Hero() {
 }
 
 export function About() {
-  const [animationData, setAnimationData] = React.useState<any>(null);
+  const animationData = techAnimationData;
 
-  React.useEffect(() => {
-    fetch(techAnimation)
-      .then(res => {
-        if (!res.ok) throw new Error("Failed to fetch Lottie");
-        return res.json();
-      })
-      .then(data => setAnimationData(data))
-      .catch(err => console.error("Error loading Lottie:", err));
-  }, []);
 
   return (
     <section id="about" className="py-32 px-6 relative">
@@ -97,9 +88,6 @@ export function About() {
         <div className="relative aspect-square glass-panel flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 grid-overlay opacity-10" />
           <div className="relative z-10 w-full h-full flex items-center justify-center p-8">
-            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-              <div className="text-8xl font-bold select-none">SYSTEMS</div>
-            </div>
             {animationData && (
               <Lottie 
                 animationData={animationData}
@@ -164,7 +152,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
         <div className="text-center md:text-left flex flex-col items-center md:items-start">
           <img 
-            src="https://storage.googleapis.com/static.aistudio.google.com/content/file-0.png" 
+            src="/transparent.png" 
             alt="Pexmon Studio Logo - Building High-Performance Digital Systems" 
             className="w-12 h-12 object-contain mb-4 block"
             referrerPolicy="no-referrer"

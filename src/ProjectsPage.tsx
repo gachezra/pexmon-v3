@@ -20,7 +20,7 @@ function MetricCard({ metric }: { metric: Project['metrics'][0], key?: React.Key
 
     const suffix = metric.value.replace(/[0-9.]/g, '');
     const prefix = metric.value.startsWith('<') ? '<' : '';
-    
+
     const obj = { val: 0 };
     const anim = gsap.to(obj, {
       val: numericValue,
@@ -100,9 +100,9 @@ export function ProjectsPage() {
       <div ref={triggerRef}>
         <div ref={sectionRef} className="horizontal-container h-screen flex">
           {PROJECTS.map((project, index) => (
-            <section 
-              key={project.id} 
-              className={`project-slide flex items-center justify-center px-6 md:px-20 relative overflow-hidden bg-gradient-to-br ${project.accentColor} to-transparent`}
+            <section
+              key={project.id}
+              className={`project-slide flex items-center justify-center sm:pt-8 px-6 md:px-20 relative overflow-hidden bg-gradient-to-br ${project.accentColor} to-transparent`}
             >
               <div className="absolute inset-0 grid-overlay opacity-5" />
               <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 md:gap-24 items-center z-10">
@@ -115,9 +115,9 @@ export function ProjectsPage() {
                   <p className="text-xl text-white/70 leading-relaxed mb-10 font-light">
                     {project.positioning}
                   </p>
-                  <a 
-                    href={project.liveUrl} 
-                    target="_blank" 
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 glass-panel hover:bg-white hover:text-black transition-all group"
                   >
@@ -160,15 +160,15 @@ export function ProjectsPage() {
             We don’t build interfaces. <br />
             <span className="text-white/40 italic">We build systems that operate.</span>
           </h2>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a 
+            <a
               href="mailto:hello@pexmon.one"
               className="px-12 py-5 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform"
             >
               Start a Project
             </a>
-            <Link 
+            <Link
               to="/"
               className="px-12 py-5 glass-panel font-bold rounded-full hover:bg-white/10 transition-all"
             >

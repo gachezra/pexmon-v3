@@ -29,13 +29,28 @@
 
 /* GSAP Horizontal Scroll Styles */
 .horizontal-container {
-  width: 500%; /* 5 projects */
+  width: 100%;
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .horizontal-container {
+    width: 500%; /* 5 projects */
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 }
 
 .project-slide {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .project-slide {
+    height: 100vh;
+    min-height: auto;
+  }
 }
