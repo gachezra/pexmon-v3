@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-background: #0D1117;
+  --color-surface: rgba(255, 255, 255, 0.05);
+  --color-border-glass: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased selection:bg-white/20;
+    background: radial-gradient(circle at 50% 0%, #0A0F1C 0%, #0D1117 50%, #000000 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface backdrop-blur-xl border border-border-glass rounded-2xl;
+  }
+  
+  .grid-overlay {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+/* GSAP Horizontal Scroll Styles */
+.horizontal-container {
+  width: 500%; /* 5 projects */
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.project-slide {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+}
