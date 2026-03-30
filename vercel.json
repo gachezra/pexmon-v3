@@ -1,15 +1,6 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"  // <--- IMPORTANT: Change 'build' to your actual output directory (e.g., 'dist', 'out', 'public')
-      }
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
